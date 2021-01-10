@@ -1,8 +1,9 @@
-[![license](https://img.shields.io/github/license/<scope>/<project-name>-xpack)](https://github.com/<organization>/<project-name>-xpack/blob/xpack/LICENSE)
+[![license](https://img.shields.io/github/license/micro-os-plus/memory-allocators-xpack)](https://github.com/micro-os-plus/memory-allocators-xpack/blob/xpack/LICENSE)
 
-# A source/binary xPack with <your-description-here>
+# A source xPack with C++ memory allocators
 
-This project includes files <TODO>.
+This project includes files several C++ memory allocators, to be used
+in applications an internally in the µOS++ RTOS.
 
 This README is intended to developers who plan to include this package
 in their own projects.
@@ -12,20 +13,19 @@ For maintainer infos, please see the [README-MAINTAINER](README-MAINTAINER.md) f
 ## Easy install
 
 This package is available as
-[`@<scope>/<project-name>`](https://www.npmjs.com/package/@<scope>/<project-name>)
+[`@micro-os-plus/memory-allocators`](https://www.npmjs.com/package/@micro-os-plus/memory-allocators)
 from the `npmjs.com` registry; with [xpm](https://xpack.github.io/xpm/)
 available, installing the latest version of the package is quite easy:
 
 ```console
-$ cd <project>
-$ xpm install @<scope>/<project-name>@latest
+$ xpm install @micro-os-plus/memory-allocators@latest
 ```
 
 This package is also available from
-[GitHub](https://github.com/<organization>/<project-name>-xpack):
+[GitHub](https://github.com/micro-os-plus/memory-allocators-xpack):
 
 ```console
-$ git clone https://github.com/<organization>/<project-name>-xpack.git <project-name>-xpack.git
+$ git clone https://github.com/micro-os-plus/memory-allocators-xpack.git memory-allocators-xpack.git
 ```
 
 ## Branches
