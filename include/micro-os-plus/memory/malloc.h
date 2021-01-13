@@ -311,3 +311,5 @@ namespace os
 #endif /* __cplusplus */
 
 #endif /* MICRO_OS_PLUS_MEMORY_MALLOC_H_ */
+
+// ----------------------------------------------------------------------------
