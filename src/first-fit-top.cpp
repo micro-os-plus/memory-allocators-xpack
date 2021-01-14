@@ -34,7 +34,6 @@ namespace os
 {
   namespace memory
   {
-
     // ========================================================================
 
     /**
@@ -51,7 +50,7 @@ namespace os
     void
     first_fit_top::internal_construct_ (void* addr, std::size_t bytes)
     {
-      assert(bytes > chunk_minsize);
+      assert (bytes > chunk_minsize);
 
       arena_addr_ = addr;
       total_bytes_ = bytes;
@@ -63,9 +62,9 @@ namespace os
       // std::align() will fail if it cannot fit the min chunk.
       if (res == nullptr)
         {
-          assert(res != nullptr);
+          assert (res != nullptr);
         }
-      assert((total_bytes_ % chunk_align) == 0);
+      assert ((total_bytes_ % chunk_align) == 0);
 
       internal_reset_ ();
     }
@@ -156,9 +155,8 @@ namespace os
                       // break it into two chunks and return the second one.
 
                       chunk->size = static_cast<std::size_t> (rem);
-                      chunk =
-                          reinterpret_cast<chunk_t *> (reinterpret_cast<char *> (chunk)
-                              + rem);
+                      chunk = reinterpret_cast<chunk_t*> (
+                          reinterpret_cast<char*> (chunk) + rem);
                       chunk->size = alloc_size;
 
                       // Splitting one chunk creates one more chunk.
@@ -175,7 +173,8 @@ namespace os
                           // The next chunk becomes the first list element.
                           free_list_ = chunk->next;
 
-                          // If this was the last chunk, the free list is empty.
+                          // If this was the last chunk, the free list is
+                          // empty.
                         }
                       else
                         {
@@ -217,8 +216,9 @@ namespace os
       void* aligned_payload = internal_align_ (chunk, bytes, alignment);
 
 #if defined(OS_TRACE_LIBCPP_MEMORY_RESOURCE)
-      trace::printf ("first_fit_top::%s(%u,%u)=%p,%u @%p %s\n", __func__, bytes,
-                     alignment, aligned_payload, alloc_size, this, name ());
+      trace::printf ("first_fit_top::%s(%u,%u)=%p,%u @%p %s\n", __func__,
+                     bytes, alignment, aligned_payload, alloc_size, this,
+                     name ());
 #endif
 
       return aligned_payload;
@@ -252,18 +252,19 @@ namespace os
       if ((addr < arena_addr_)
           || (addr > (static_cast<char*> (arena_addr_) + total_bytes_)))
         {
-          assert(false);
+          assert (false);
           return;
         }
 
       // Compute the chunk address from the user address.
-      chunk_t* chunk = reinterpret_cast<chunk_t *> (static_cast<char *> (addr)
-          - chunk_offset);
+      chunk_t* chunk = reinterpret_cast<chunk_t*> (static_cast<char*> (addr)
+                                                   - chunk_offset);
 
       // If the block was aligned, the offset appears as size; adjust back.
       if (static_cast<std::ptrdiff_t> (chunk->size) < 0)
         {
-          chunk = reinterpret_cast<chunk_t *> (reinterpret_cast<char *> (chunk)
+          chunk = reinterpret_cast<chunk_t*> (
+              reinterpret_cast<char*> (chunk)
               + static_cast<std::ptrdiff_t> (chunk->size));
         }
 
@@ -273,7 +274,7 @@ namespace os
           // (when called from free(), the size is not known).
           if (bytes + chunk_offset > chunk->size)
             {
-              assert(false);
+              assert (false);
               return;
             }
         }
@@ -290,7 +291,7 @@ namespace os
 
           // The chunk becomes the first list element.
           free_list_ = chunk;
-          assert(free_chunks_ == 1);
+          assert (free_chunks_ == 1);
 
           return;
         }
@@ -299,8 +300,8 @@ namespace os
       if (chunk < free_list_)
         {
           // Is the chunk *right* before the list head?
-          if (reinterpret_cast<char *> (chunk) + chunk->size
-              == reinterpret_cast<char *> (free_list_))
+          if (reinterpret_cast<char*> (chunk) + chunk->size
+              == reinterpret_cast<char*> (free_list_))
             {
               // Coalesce chunk to the list head.
               chunk->size += free_list_->size;
@@ -337,8 +338,8 @@ namespace os
       // next_chunk > chunk.
       // Try to merge with chunks immediately before/after it.
 
-      if (reinterpret_cast<char *> (prev_chunk) + prev_chunk->size
-          == reinterpret_cast<char *> (chunk))
+      if (reinterpret_cast<char*> (prev_chunk) + prev_chunk->size
+          == reinterpret_cast<char*> (chunk))
         {
           // Chunk to be freed is adjacent to a free chunk before it.
           prev_chunk->size += chunk->size;
@@ -348,8 +349,8 @@ namespace os
 
           // If the merged chunk is also adjacent to the chunk after it,
           // merge again. Does not match if next_chunk == nullptr.
-          if (reinterpret_cast<char *> (prev_chunk) + prev_chunk->size
-              == reinterpret_cast<char *> (next_chunk))
+          if (reinterpret_cast<char*> (prev_chunk) + prev_chunk->size
+              == reinterpret_cast<char*> (next_chunk))
             {
               prev_chunk->size += next_chunk->size;
               prev_chunk->next = next_chunk->next;
@@ -358,8 +359,8 @@ namespace os
               --free_chunks_;
             }
         }
-      else if (reinterpret_cast<char *> (prev_chunk) + prev_chunk->size
-          > reinterpret_cast<char *> (chunk))
+      else if (reinterpret_cast<char*> (prev_chunk) + prev_chunk->size
+               > reinterpret_cast<char*> (chunk))
         {
           // Already freed.
 
@@ -376,8 +377,8 @@ namespace os
           return;
         }
       // Does not match if next_chunk == nullptr.
-      else if (reinterpret_cast<char *> (chunk) + chunk->size
-          == reinterpret_cast<char *> (next_chunk))
+      else if (reinterpret_cast<char*> (chunk) + chunk->size
+               == reinterpret_cast<char*> (next_chunk))
         {
           // The chunk to be freed is adjacent to a free chunk after it.
           chunk->size += next_chunk->size;
@@ -410,14 +411,14 @@ namespace os
      */
     void*
     first_fit_top::internal_align_ (chunk_t* chunk, std::size_t bytes,
-                             std::size_t alignment)
+                                    std::size_t alignment)
     {
       // Update statistics.
       // The value subtracted from free is added to allocated.
       internal_increase_allocated_statistics (chunk->size);
 
       // Compute pointer to payload area.
-      char* payload = reinterpret_cast<char *> (chunk) + chunk_offset;
+      char* payload = reinterpret_cast<char*> (chunk) + chunk_offset;
 
       // Align it to user provided alignment.
       void* aligned_payload = payload;
@@ -427,24 +428,22 @@ namespace os
       res = std::align (alignment, bytes, aligned_payload, aligned_size);
       if (res == nullptr)
         {
-          assert(res != nullptr);
+          assert (res != nullptr);
         }
 
       // Compute the possible alignment offset.
-      std::ptrdiff_t offset = static_cast<char *> (aligned_payload) - payload;
+      std::ptrdiff_t offset = static_cast<char*> (aligned_payload) - payload;
       if (offset)
         {
           // If non-zero, store it in the gap left by alignment in the
           // chunk header.
 
-          chunk_t* adj_chunk =
-              reinterpret_cast<chunk_t *> (static_cast<char *> (aligned_payload)
-                  - chunk_offset);
+          chunk_t* adj_chunk = reinterpret_cast<chunk_t*> (
+              static_cast<char*> (aligned_payload) - chunk_offset);
           adj_chunk->size = static_cast<std::size_t> (-offset);
         }
 
-      assert(
-          (reinterpret_cast<uintptr_t> (aligned_payload) & (alignment - 1))
+      assert ((reinterpret_cast<uintptr_t> (aligned_payload) & (alignment - 1))
               == 0);
 
       return aligned_payload;
@@ -452,8 +451,8 @@ namespace os
 
 #pragma GCC diagnostic pop
 
-  // --------------------------------------------------------------------------
-  } /* namespace memory */
-} /* namespace os */
+    // ------------------------------------------------------------------------
+  } // namespace memory
+} // namespace os
 
 // ----------------------------------------------------------------------------

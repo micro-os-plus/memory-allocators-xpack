@@ -34,7 +34,6 @@ namespace os
 {
   namespace memory
   {
-
     // ========================================================================
 
     /**
@@ -107,9 +106,8 @@ namespace os
                       chunk->size = static_cast<std::size_t> (rem);
 
                       // Compute where top chunk starts.
-                      chunk =
-                          reinterpret_cast<chunk_t *> (reinterpret_cast<char *> (chunk)
-                              + rem);
+                      chunk = reinterpret_cast<chunk_t*> (
+                          reinterpret_cast<char*> (chunk) + rem);
                       chunk->size = alloc_size;
 
                       // Splitting one chunk creates one more chunk.
@@ -166,8 +164,8 @@ namespace os
 
 #pragma GCC diagnostic pop
 
-  // --------------------------------------------------------------------------
-  } /* namespace memory */
-} /* namespace os */
+    // ------------------------------------------------------------------------
+  } // namespace memory
+} // namespace os
 
 // ----------------------------------------------------------------------------
