@@ -574,8 +574,8 @@ namespace os
 
 // ----------------------------------------------------------------------------
 
-#endif /* __cplusplus */
+#endif // __cplusplus
 
-#endif /* MICRO_OS_PLUS_MEMORY_FIRST_FIT_TOP_H_ */
+#endif // MICRO_OS_PLUS_MEMORY_FIRST_FIT_TOP_H_
 
 // ----------------------------------------------------------------------------

@@ -455,8 +455,8 @@ namespace os
 
 // ----------------------------------------------------------------------------
 
-#endif /* __cplusplus */
+#endif // __cplusplus
 
-#endif /* MICRO_OS_PLUS_MEMORY_LIFO_H_ */
+#endif // MICRO_OS_PLUS_MEMORY_LIFO_H_
 
 // ----------------------------------------------------------------------------
