@@ -11,30 +11,36 @@
 
 message(STATUS "Including micro-os-plus-memory-allocators...")
 
+# -----------------------------------------------------------------------------
+
 function(target_sources_micro_os_plus_memory_allocators target)
 
-  get_filename_component(PARENT_DIR ${CMAKE_CURRENT_FUNCTION_LIST_DIR} DIRECTORY)
+  get_filename_component(xpack_root_folder ${CMAKE_CURRENT_FUNCTION_LIST_DIR} DIRECTORY)
 
   target_sources(
     ${target}
 
     PRIVATE
-    ${PARENT_DIR}/src/block-pool.cpp
-    ${PARENT_DIR}/src/first-fit-top.cpp
-    ${PARENT_DIR}/src/lifo.cpp
+      ${xpack_root_folder}/src/block-pool.cpp
+      ${xpack_root_folder}/src/first-fit-top.cpp
+      ${xpack_root_folder}/src/lifo.cpp
   )
+
 endfunction()
+
+# -----------------------------------------------------------------------------
 
 function(target_include_directories_micro_os_plus_memory_allocators target)
 
-  get_filename_component(PARENT_DIR ${CMAKE_CURRENT_FUNCTION_LIST_DIR} DIRECTORY)
+  get_filename_component(xpack_root_folder ${CMAKE_CURRENT_FUNCTION_LIST_DIR} DIRECTORY)
 
   target_include_directories(
     ${target}
 
     PUBLIC
-      ${PARENT_DIR}/include
+      ${xpack_root_folder}/include
   )
+
 endfunction()
 
 # -----------------------------------------------------------------------------
