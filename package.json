@@ -1,21 +1,23 @@
 {
   "name": "@micro-os-plus/memory-allocators",
   "version": "0.1.0",
-  "description": "A source xPack with <your-description-here>",
+  "description": "A source xPack with memory allocators",
   "main": "",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/micro-os-plus/memory-allocators-xpack.git"
+    "url": "git+https://github.com/micro-os-plus/memory-allocators-xpack.git/"
   },
   "bugs": {
-    "url": "https://github.com/micro-os-plus/memory-allocators-xpack/issues"
+    "url": "https://github.com/micro-os-plus/memory-allocators-xpack/issues/"
   },
-  "homepage": "https://github.com/micro-os-plus/memory-allocators-xpack",
+  "homepage": "https://github.com/micro-os-plus/memory-allocators-xpack/",
   "keywords": [
-    "xpack"
+    "xpack",
+    "c++",
+    "micro-os-plus"
   ],
   "author": {
     "name": "Liviu Ionescu",
