@@ -1,7 +1,7 @@
 {
   "name": "@micro-os-plus/memory-allocators",
   "version": "0.1.0",
-  "description": "A source xPack with memory allocators",
+  "description": "A source xPack with µOS++ memory allocators",
   "main": "",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
