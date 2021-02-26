@@ -38,13 +38,13 @@ if(NOT TARGET micro-os-plus-memory-allocators-interface)
 
   # ---------------------------------------------------------------------------
 
+  file(GLOB_RECURSE source_files CONFIGURE_DEPENDS "${xpack_current_folder}/src/*.c*")
+
   target_sources(
     micro-os-plus-memory-allocators-interface
 
     INTERFACE
-      ${xpack_current_folder}/src/block-pool.cpp
-      ${xpack_current_folder}/src/first-fit-top.cpp
-      ${xpack_current_folder}/src/lifo.cpp
+      ${source_files}
   )
 
   target_include_directories(
