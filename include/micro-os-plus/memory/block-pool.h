@@ -32,7 +32,7 @@
 
 #if defined(__cplusplus)
 
-#include <micro-os-plus/rtos/os.h>
+#include <micro-os-plus/rtos.h>
 
 // ----------------------------------------------------------------------------
 

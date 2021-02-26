@@ -26,7 +26,7 @@
  */
 
 #include <micro-os-plus/memory/block-pool.h>
-#include <micro-os-plus/rtos/os.h>
+#include <micro-os-plus/rtos.h>
 
 // ----------------------------------------------------------------------------
 

@@ -32,7 +32,7 @@
 
 #if defined(__cplusplus)
 
-#include <micro-os-plus/rtos/os.h>
+#include <micro-os-plus/rtos.h>
 
 // ----------------------------------------------------------------------------
 
@@ -49,7 +49,7 @@ namespace os
     // ========================================================================
 
     /**
-     * @headerfile os.h <micro-os-plus/rtos/os.h>
+     * @headerfile os.h <micro-os-plus/rtos.h>
      * @ingroup cmsis-plus-rtos-memres
      * @brief
      * An internal memory manager that throws a `bad_alloc()`
