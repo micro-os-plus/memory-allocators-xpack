@@ -50,7 +50,7 @@ namespace os
 
     /**
      * @headerfile os.h <micro-os-plus/rtos.h>
-     * @ingroup cmsis-plus-rtos-memres
+     * @ingroup micro-os-plus-rtos-memres
      * @brief
      * An internal memory manager that throws a `bad_alloc()`
      * exception when trying to allocate.

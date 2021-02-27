@@ -45,7 +45,7 @@ namespace os
     /**
      * @brief Memory resource managing a pool of same size blocks,
      *  using an existing arena.
-     * @ingroup cmsis-plus-rtos-memres
+     * @ingroup micro-os-plus-rtos-memres
      * @headerfile block-pool.h <micro-os-plus/memory/block-pool.h>
      *
      * @details
@@ -237,7 +237,7 @@ namespace os
     /**
      * @brief Memory resource managing an internal pool.
      *  of same size blocks of type T.
-     * @ingroup cmsis-plus-rtos-memres
+     * @ingroup micro-os-plus-rtos-memres
      * @headerfile block-pool.h <micro-os-plus/memory/block-pool.h>
      *
      * @details
@@ -331,7 +331,7 @@ namespace os
     /**
      * @brief Memory resource managing a dynamically allocated pool.
      *  of same size blocks of type T.
-     * @ingroup cmsis-plus-rtos-memres
+     * @ingroup micro-os-plus-rtos-memres
      * @headerfile block-pool.h <micro-os-plus/memory/block-pool.h>
      *
      * @details

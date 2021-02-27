@@ -50,7 +50,7 @@ namespace os
 
     /**
      * @headerfile os.h <micro-os-plus/memory/malloc.h>
-     * @ingroup cmsis-plus-rtos-memres
+     * @ingroup micro-os-plus-rtos-memres
      * @brief
      * A memory manager that allocates memory via
      * the system `std::malloc()` and deallocates via `std::free()`.
@@ -141,7 +141,7 @@ namespace os
 
     /**
      * @headerfile os.h <micro-os-plus/memory/malloc.h>
-     * @ingroup cmsis-plus-rtos-memres
+     * @ingroup micro-os-plus-rtos-memres
      * @brief
      * A memory manager that allocates memory via
      * the system `operator new` and deallocates via `operator delete`.

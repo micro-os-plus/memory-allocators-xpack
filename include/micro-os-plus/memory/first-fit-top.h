@@ -45,7 +45,7 @@ namespace os
     /**
      * @brief Memory resource implementing the first fit, top-down
      *  allocation policies, using an existing arena.
-     * @ingroup cmsis-plus-rtos-memres
+     * @ingroup micro-os-plus-rtos-memres
      * @headerfile first-fit-top.h <micro-os-plus/memory/first-fit-top.h>
      *
      * @details
@@ -269,7 +269,7 @@ namespace os
     /**
      * @brief Memory resource implementing the first fit, top-down
      *  allocation policies, using an internal arena.
-     * @ingroup cmsis-plus-rtos-memres
+     * @ingroup micro-os-plus-rtos-memres
      * @headerfile first-fit-top.h <micro-os-plus/memory/first-fit-top.h>
      *
      * @details
@@ -353,7 +353,7 @@ namespace os
     /**
      * @brief Memory resource implementing the first fit, top-down
      *  allocation policies, using a dynamically allocated arena.
-     * @ingroup cmsis-plus-rtos-memres
+     * @ingroup micro-os-plus-rtos-memres
      * @headerfile first-fit-top.h <micro-os-plus/memory/first-fit-top.h>
      *
      * @details
