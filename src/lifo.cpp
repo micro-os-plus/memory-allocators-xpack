@@ -85,8 +85,7 @@ namespace micro_os_plus
       alloc_size += chunk_offset;
 
       std::size_t block_minchunk = calc_block_minchunk (block_padding);
-      alloc_size
-          = rtos::memory::max (alloc_size, block_minchunk);
+      alloc_size = rtos::memory::max (alloc_size, block_minchunk);
 
       chunk_t* chunk = nullptr;
 
