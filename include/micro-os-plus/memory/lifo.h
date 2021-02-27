@@ -36,7 +36,7 @@
 
 // ----------------------------------------------------------------------------
 
-namespace os
+namespace micro_os_plus
 {
   namespace memory
   {
@@ -74,7 +74,7 @@ namespace os
      * for pools of objects, that are later created and destroyed
      * on an as-needed basis.
      */
-    class lifo : public os::memory::first_fit_top
+    class lifo : public micro_os_plus::memory::first_fit_top
     {
     public:
       /**
@@ -256,7 +256,7 @@ namespace os
      *
      * The common use case it to define dynamically allocated memory managers.
      */
-    template <typename A = os::rtos::memory::allocator<char>>
+    template <typename A = micro_os_plus::rtos::memory::allocator<char>>
     class lifo_allocated : public lifo
     {
     public:
@@ -356,11 +356,11 @@ namespace os
 
     // -------------------------------------------------------------------------
   } // namespace memory
-} // namespace os
+} // namespace micro_os_plus
 
 // ===== Inline & template implementations ====================================
 
-namespace os
+namespace micro_os_plus
 {
   namespace memory
   {
@@ -451,7 +451,7 @@ namespace os
 
     // ------------------------------------------------------------------------
   } // namespace memory
-} // namespace os
+} // namespace micro_os_plus
 
 // ----------------------------------------------------------------------------
 

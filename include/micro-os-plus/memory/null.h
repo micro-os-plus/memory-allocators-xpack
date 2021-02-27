@@ -36,7 +36,7 @@
 
 // ----------------------------------------------------------------------------
 
-namespace os
+namespace micro_os_plus
 {
   namespace memory
   {
@@ -136,11 +136,11 @@ namespace os
 
     // -------------------------------------------------------------------------
   } // namespace memory
-} // namespace os
+} // namespace micro_os_plus
 
 // ===== Inline & template implementations ====================================
 
-namespace os
+namespace micro_os_plus
 {
   namespace memory
   {
@@ -169,7 +169,7 @@ namespace os
 
     // ==========================================================================
   } // namespace memory
-} // namespace os
+} // namespace micro_os_plus
 
 // ----------------------------------------------------------------------------
 

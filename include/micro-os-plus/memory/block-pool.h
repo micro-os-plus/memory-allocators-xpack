@@ -36,7 +36,7 @@
 
 // ----------------------------------------------------------------------------
 
-namespace os
+namespace micro_os_plus
 {
   namespace memory
   {
@@ -342,7 +342,8 @@ namespace os
      *
      * @note The allocator must be parametrised with the same block type.
      */
-    template <typename T, typename A = os::rtos::memory::allocator<T>>
+    template <typename T,
+              typename A = micro_os_plus::rtos::memory::allocator<T>>
     class block_pool_typed_allocated : public block_pool
     {
     public:
@@ -448,11 +449,11 @@ namespace os
 
     // -------------------------------------------------------------------------
   } // namespace memory
-} // namespace os
+} // namespace micro_os_plus
 
 // ===== Inline & template implementations ====================================
 
-namespace os
+namespace micro_os_plus
 {
   namespace memory
   {
@@ -560,7 +561,7 @@ namespace os
 
     // ------------------------------------------------------------------------
   } // namespace memory
-} // namespace os
+} // namespace micro_os_plus
 
 // ----------------------------------------------------------------------------
 

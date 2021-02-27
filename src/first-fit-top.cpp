@@ -30,7 +30,11 @@
 
 // ----------------------------------------------------------------------------
 
-namespace os
+using namespace micro_os_plus;
+
+// ----------------------------------------------------------------------------
+
+namespace micro_os_plus
 {
   namespace memory
   {
@@ -134,7 +138,8 @@ namespace os
       alloc_size += chunk_offset;
 
       std::size_t block_minchunk = calc_block_minchunk (block_padding);
-      alloc_size = os::rtos::memory::max (alloc_size, block_minchunk);
+      alloc_size
+          = rtos::memory::max (alloc_size, block_minchunk);
 
       chunk_t* chunk;
 
@@ -453,6 +458,6 @@ namespace os
 
     // ------------------------------------------------------------------------
   } // namespace memory
-} // namespace os
+} // namespace micro_os_plus
 
 // ----------------------------------------------------------------------------

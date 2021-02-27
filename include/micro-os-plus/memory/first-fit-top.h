@@ -36,7 +36,7 @@
 
 // ----------------------------------------------------------------------------
 
-namespace os
+namespace micro_os_plus
 {
   namespace memory
   {
@@ -244,7 +244,8 @@ namespace os
       static constexpr std::size_t
       calc_block_padding (std::size_t block_align)
       {
-        return os::rtos::memory::max (block_align, chunk_align) - chunk_align;
+        return micro_os_plus::rtos::memory::max (block_align, chunk_align)
+               - chunk_align;
       }
 
       // The minimum chunk to it the block.
@@ -362,7 +363,7 @@ namespace os
      *
      * The common use case it to define dynamically allocated memory managers.
      */
-    template <typename A = os::rtos::memory::allocator<char>>
+    template <typename A = micro_os_plus::rtos::memory::allocator<char>>
     class first_fit_top_allocated : public first_fit_top
     {
     public:
@@ -464,11 +465,11 @@ namespace os
 
     // ------------------------------------------------------------------------
   } // namespace memory
-} // namespace os
+} // namespace micro_os_plus
 
 // ===== Inline & template implementations ====================================
 
-namespace os
+namespace micro_os_plus
 {
   namespace memory
   {
@@ -570,7 +571,7 @@ namespace os
 
     // ------------------------------------------------------------------------
   } // namespace memory
-} // namespace os
+} // namespace micro_os_plus
 
 // ----------------------------------------------------------------------------
 
