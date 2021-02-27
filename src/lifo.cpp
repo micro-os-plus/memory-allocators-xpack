@@ -134,7 +134,7 @@ namespace os
 
           if (out_of_memory_handler_ == nullptr)
             {
-#if defined(OS_TRACE_LIBCPP_MEMORY_RESOURCE)
+#if defined(MICRO_OS_PLUS_TRACE_LIBCPP_MEMORY_RESOURCE)
               trace::printf ("lifo::%s(%u,%u)=0 @%p %s\n", __func__, bytes,
                              alignment, this, this->name ());
 #endif
@@ -142,7 +142,7 @@ namespace os
               return nullptr;
             }
 
-#if defined(OS_TRACE_LIBCPP_MEMORY_RESOURCE)
+#if defined(MICRO_OS_PLUS_TRACE_LIBCPP_MEMORY_RESOURCE)
           trace::printf ("lifo::%s(%u,%u) @%p %s out of memory\n", __func__,
                          bytes, alignment, this, this->name ());
 #endif
@@ -154,7 +154,7 @@ namespace os
 
       void* aligned_payload = internal_align_ (chunk, bytes, alignment);
 
-#if defined(OS_TRACE_LIBCPP_MEMORY_RESOURCE)
+#if defined(MICRO_OS_PLUS_TRACE_LIBCPP_MEMORY_RESOURCE)
       trace::printf ("lifo::%s(%u,%u)=%p,%u @%p %s\n", __func__, bytes,
                      alignment, aligned_payload, alloc_size, this, name ());
 #endif

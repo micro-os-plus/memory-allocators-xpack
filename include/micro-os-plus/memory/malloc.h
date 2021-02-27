@@ -239,7 +239,7 @@ namespace os
     {
       // Ignore alignment for now.
       void* mem = std::malloc (bytes);
-#if defined(OS_TRACE_LIBCPP_MEMORY_RESOURCE)
+#if defined(MICRO_OS_PLUS_TRACE_LIBCPP_MEMORY_RESOURCE)
       trace::printf ("%s(%u,%u)=%p @%p %s\n", __func__, bytes, alignment, mem,
                      this, name ());
 #endif
@@ -251,7 +251,7 @@ namespace os
     malloc_memory_resource::do_deallocate (void* addr, std::size_t bytes,
                                            std::size_t alignment) noexcept
     {
-#if defined(OS_TRACE_LIBCPP_MEMORY_RESOURCE)
+#if defined(MICRO_OS_PLUS_TRACE_LIBCPP_MEMORY_RESOURCE)
       trace::printf ("%s(%p,%u,%u) @%p %s\n", __func__, addr, bytes, alignment,
                      this, name ());
 #endif
@@ -272,7 +272,7 @@ namespace os
     {
       // Ignore alignment for now.
       void* mem = ::operator new (bytes);
-#if defined(OS_TRACE_LIBCPP_MEMORY_RESOURCE)
+#if defined(MICRO_OS_PLUS_TRACE_LIBCPP_MEMORY_RESOURCE)
       trace::printf ("%s(%u,%u)=%p @%p %s\n", __func__, bytes, alignment, mem,
                      this, name ());
 #endif
@@ -284,7 +284,7 @@ namespace os
     new_delete_memory_resource::do_deallocate (void* addr, size_t bytes,
                                                size_t alignment) noexcept
     {
-#if defined(OS_TRACE_LIBCPP_MEMORY_RESOURCE)
+#if defined(MICRO_OS_PLUS_TRACE_LIBCPP_MEMORY_RESOURCE)
       trace::printf ("%s(%p,%u,%u) @%p %s\n", __func__, addr, bytes, alignment,
                      this, name ());
 #endif

@@ -98,7 +98,7 @@ namespace os
     void
     first_fit_top::do_reset (void) noexcept
     {
-#if defined(OS_TRACE_LIBCPP_MEMORY_RESOURCE)
+#if defined(MICRO_OS_PLUS_TRACE_LIBCPP_MEMORY_RESOURCE)
       trace::printf ("first_fit_top::%s() @%p %s\n", __func__, this, name ());
 #endif
 
@@ -195,7 +195,7 @@ namespace os
 
           if (out_of_memory_handler_ == nullptr)
             {
-#if defined(OS_TRACE_LIBCPP_MEMORY_RESOURCE)
+#if defined(MICRO_OS_PLUS_TRACE_LIBCPP_MEMORY_RESOURCE)
               trace::printf ("first_fit_top::%s(%u,%u)=0 @%p %s\n", __func__,
                              bytes, alignment, this, name ());
 #endif
@@ -203,7 +203,7 @@ namespace os
               return nullptr;
             }
 
-#if defined(OS_TRACE_LIBCPP_MEMORY_RESOURCE)
+#if defined(MICRO_OS_PLUS_TRACE_LIBCPP_MEMORY_RESOURCE)
           trace::printf ("first_fit_top::%s(%u,%u) @%p %s out of memory\n",
                          __func__, bytes, alignment, this, name ());
 #endif
@@ -215,7 +215,7 @@ namespace os
 
       void* aligned_payload = internal_align_ (chunk, bytes, alignment);
 
-#if defined(OS_TRACE_LIBCPP_MEMORY_RESOURCE)
+#if defined(MICRO_OS_PLUS_TRACE_LIBCPP_MEMORY_RESOURCE)
       trace::printf ("first_fit_top::%s(%u,%u)=%p,%u @%p %s\n", __func__,
                      bytes, alignment, aligned_payload, alloc_size, this,
                      name ());
@@ -243,7 +243,7 @@ namespace os
     first_fit_top::do_deallocate (void* addr, std::size_t bytes,
                                   std::size_t alignment) noexcept
     {
-#if defined(OS_TRACE_LIBCPP_MEMORY_RESOURCE)
+#if defined(MICRO_OS_PLUS_TRACE_LIBCPP_MEMORY_RESOURCE)
       trace::printf ("first_fit_top::%s(%p,%u,%u) @%p %s\n", __func__, addr,
                      bytes, alignment, this, name ());
 #endif

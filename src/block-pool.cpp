@@ -68,7 +68,7 @@ namespace os
       // What is subtracted from free is added to allocated.
       internal_increase_allocated_statistics (block_size_bytes_);
 
-#if defined(OS_TRACE_LIBCPP_MEMORY_RESOURCE)
+#if defined(MICRO_OS_PLUS_TRACE_LIBCPP_MEMORY_RESOURCE)
       trace::printf ("%s(%u,%u)=%p,%u @%p %s\n", __func__, bytes, alignment, p,
                      block_size_bytes_, this, name ());
 #endif
@@ -83,7 +83,7 @@ namespace os
     block_pool::do_deallocate (void* addr, std::size_t bytes,
                                std::size_t alignment) noexcept
     {
-#if defined(OS_TRACE_LIBCPP_MEMORY_RESOURCE)
+#if defined(MICRO_OS_PLUS_TRACE_LIBCPP_MEMORY_RESOURCE)
       trace::printf ("%s(%p,%u,%u) @%p %s\n", __func__, addr, bytes, alignment,
                      this, name ());
 #endif
@@ -130,7 +130,7 @@ namespace os
     void
     block_pool::do_reset (void) noexcept
     {
-#if defined(OS_TRACE_LIBCPP_MEMORY_RESOURCE)
+#if defined(MICRO_OS_PLUS_TRACE_LIBCPP_MEMORY_RESOURCE)
       trace::printf ("%s() @%p %s\n", __func__, this, name ());
 #endif
       internal_reset_ ();
