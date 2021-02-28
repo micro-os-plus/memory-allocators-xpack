@@ -88,8 +88,8 @@ namespace micro_os_plus
                      this, name ());
 #endif
 
-      if ((addr < pool_addr_)
-          || (addr >= (static_cast<char*> (pool_addr_)
+      if ((addr < pool_arena_address_)
+          || (addr >= (static_cast<char*> (pool_arena_address_)
                        + blocks_ * block_size_bytes_)))
         {
           assert (false);
@@ -151,14 +151,14 @@ namespace micro_os_plus
       assert (block_size_bytes_ >= sizeof (void*));
 
       assert (addr != nullptr);
-      pool_addr_ = addr;
+      pool_arena_address_ = addr;
 
       std::size_t align_sz = bytes;
 
       void* res;
       // Possibly adjust the last two parameters.
       res = std::align (alignof (void*), blocks * block_size_bytes_,
-                        pool_addr_, align_sz);
+                        pool_arena_address_, align_sz);
 
       // std::align() will fail if it cannot fit the adjusted block size.
       if (res != nullptr)
@@ -183,7 +183,7 @@ namespace micro_os_plus
       // Construct a linked list of blocks. Store the pointer at
       // the beginning of each block. Each block
       // will hold the address of the next free block, or nullptr at the end.
-      char* p = static_cast<char*> (pool_addr_);
+      char* p = static_cast<char*> (pool_arena_address_);
       for (std::size_t i = 1; i < blocks_; ++i)
         {
           // Compute the address of the next block;
@@ -198,7 +198,7 @@ namespace micro_os_plus
       // Mark end of list.
       *(static_cast<void**> (static_cast<void*> (p))) = nullptr;
 
-      first_ = pool_addr_; // Pointer to first block.
+      first_ = pool_arena_address_; // Pointer to first block.
 
       count_ = 0; // No allocated blocks.
 

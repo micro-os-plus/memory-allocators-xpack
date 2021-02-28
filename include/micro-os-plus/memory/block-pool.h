@@ -203,9 +203,9 @@ namespace micro_os_plus
 
       /**
        * @brief The static address where the pool is stored.
-       * (from `attr.mp_pool_address`).
+       * (from `attr.memory_pool_arena_address`).
        */
-      void* pool_addr_ = nullptr;
+      void* pool_arena_address_ = nullptr;
 
       /**
        * @brief Pointer to the first free block, or nullptr.
@@ -551,7 +551,8 @@ namespace micro_os_plus
       if (allocator_ != nullptr)
         {
           allocator_->deallocate (
-              static_cast<typename allocator_traits::pointer> (pool_addr_),
+              static_cast<typename allocator_traits::pointer> (
+                  pool_arena_address_),
               blocks_);
 
           // Prevent another deallocation.
