@@ -203,7 +203,7 @@ namespace micro_os_plus
 
       /**
        * @brief The static address where the pool is stored.
-       * (from `attr.memory_pool_arena_address`).
+       * (from `attr.arena_address`).
        */
       void* pool_arena_address_ = nullptr;
 
