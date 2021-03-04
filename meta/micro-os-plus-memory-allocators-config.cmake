@@ -59,7 +59,7 @@ if(NOT TARGET micro-os-plus-memory-allocators-interface)
     micro-os-plus-memory-allocators-interface
 
     INTERFACE
-      micro-os-plus::diag-trace-static
+      micro-os-plus::diag-trace
   )
 
   # ---------------------------------------------------------------------------
