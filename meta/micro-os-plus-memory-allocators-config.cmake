@@ -66,7 +66,7 @@ if(NOT TARGET micro-os-plus-memory-allocators-interface)
   # Aliases.
 
   add_library(micro-os-plus::memory-allocators ALIAS micro-os-plus-memory-allocators-interface)
-  message(STATUS "micro-os-plus::memory-allocators")
+  message(STATUS "=> micro-os-plus::memory-allocators")
 
 endif()
 
