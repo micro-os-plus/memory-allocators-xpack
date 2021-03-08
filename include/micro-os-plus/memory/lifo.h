@@ -32,9 +32,17 @@
 
 #if defined(__cplusplus)
 
+// ----------------------------------------------------------------------------
+
 #include <micro-os-plus/memory/first-fit-top.h>
 
 // ----------------------------------------------------------------------------
+
+#pragma GCC diagnostic push
+
+#if defined(__clang__)
+#pragma clang diagnostic ignored "-Wc++98-compat"
+#endif
 
 namespace micro_os_plus
 {
@@ -106,7 +114,7 @@ namespace micro_os_plus
 
       /**
        * @brief Construct a named memory resource object instance.
-       * @param [in] name
+       * @param [in] name Pointer to name.
        */
       lifo (const char* name);
 
@@ -453,9 +461,13 @@ namespace micro_os_plus
   } // namespace memory
 } // namespace micro_os_plus
 
+#pragma GCC diagnostic pop
+
 // ----------------------------------------------------------------------------
 
 #endif // __cplusplus
+
+// ----------------------------------------------------------------------------
 
 #endif // MICRO_OS_PLUS_MEMORY_LIFO_H_
 

@@ -34,15 +34,18 @@ using namespace micro_os_plus;
 
 // ----------------------------------------------------------------------------
 
+#pragma GCC diagnostic push
+
+#if defined(__clang__)
+#pragma clang diagnostic ignored "-Wc++98-compat"
+#endif
+
 namespace micro_os_plus
 {
   namespace memory
   {
     // ========================================================================
 
-    /**
-     * @details
-     */
     lifo::~lifo ()
     {
       trace::printf ("lifo::%s() @%p %s\n", __func__, this, this->name ());
@@ -109,9 +112,13 @@ namespace micro_os_plus
                       // Shrink bottom chunk to remaining size.
                       chunk->size = static_cast<std::size_t> (rem);
 
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wcast-align"
                       // Compute where top chunk starts.
                       chunk = reinterpret_cast<chunk_t*> (
                           reinterpret_cast<char*> (chunk) + rem);
+#pragma GCC diagnostic pop
+
                       chunk->size = alloc_size;
 
                       // Splitting one chunk creates one more chunk.
@@ -171,5 +178,7 @@ namespace micro_os_plus
     // ------------------------------------------------------------------------
   } // namespace memory
 } // namespace micro_os_plus
+
+#pragma GCC diagnostic pop
 
 // ----------------------------------------------------------------------------

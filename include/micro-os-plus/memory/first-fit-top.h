@@ -32,9 +32,17 @@
 
 #if defined(__cplusplus)
 
+// ----------------------------------------------------------------------------
+
 #include <micro-os-plus/rtos.h>
 
 // ----------------------------------------------------------------------------
+
+#pragma GCC diagnostic push
+
+#if defined(__clang__)
+#pragma clang diagnostic ignored "-Wc++98-compat"
+#endif
 
 namespace micro_os_plus
 {
@@ -87,7 +95,7 @@ namespace micro_os_plus
 
       /**
        * @brief Construct a named memory resource object instance.
-       * @param [in] name
+       * @param [in] name Pointer to name.
        */
       first_fit_top (const char* name);
 
@@ -141,7 +149,7 @@ namespace micro_os_plus
 
         // When the chunk is in the free list, instead of the
         // payload, here is a pointer to the next chunk.
-        struct chunk_s* next;
+        chunk_s* next;
       } chunk_t;
 
 #pragma GCC diagnostic pop
@@ -573,9 +581,13 @@ namespace micro_os_plus
   } // namespace memory
 } // namespace micro_os_plus
 
+#pragma GCC diagnostic pop
+
 // ----------------------------------------------------------------------------
 
 #endif // __cplusplus
+
+// ----------------------------------------------------------------------------
 
 #endif // MICRO_OS_PLUS_MEMORY_FIRST_FIT_TOP_H_
 

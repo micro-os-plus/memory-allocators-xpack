@@ -34,23 +34,23 @@ using namespace micro_os_plus;
 
 // ----------------------------------------------------------------------------
 
+#pragma GCC diagnostic push
+
+#if defined(__clang__)
+#pragma clang diagnostic ignored "-Wc++98-compat"
+#endif
+
 namespace micro_os_plus
 {
   namespace memory
   {
     // ========================================================================
 
-    /**
-     * @details
-     */
     first_fit_top::~first_fit_top ()
     {
       trace::printf ("first_fit_top::%s() @%p %s\n", __func__, this, name ());
     }
 
-    /**
-     * @details
-     */
     void
     first_fit_top::internal_construct_ (void* addr, std::size_t bytes)
     {
@@ -73,9 +73,6 @@ namespace micro_os_plus
       internal_reset_ ();
     }
 
-    /**
-     * @details
-     */
     void
     first_fit_top::internal_reset_ (void) noexcept
     {
@@ -96,9 +93,6 @@ namespace micro_os_plus
       free_list_ = chunk;
     }
 
-    /**
-     * @details
-     */
     void
     first_fit_top::do_reset (void) noexcept
     {
@@ -159,8 +153,11 @@ namespace micro_os_plus
                       // break it into two chunks and return the second one.
 
                       chunk->size = static_cast<std::size_t> (rem);
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wcast-align"
                       chunk = reinterpret_cast<chunk_t*> (
                           reinterpret_cast<char*> (chunk) + rem);
+#pragma GCC diagnostic pop
                       chunk->size = alloc_size;
 
                       // Splitting one chunk creates one more chunk.
@@ -230,7 +227,6 @@ namespace micro_os_plus
 
     /**
      * @details
-     *
      * Deallocation is not guaranteed to be deterministic, but if
      * done in strict reverse allocation order, it becomes deterministic,
      * otherwise a traversal of the free list is required, the older the
@@ -260,16 +256,22 @@ namespace micro_os_plus
           return;
         }
 
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wcast-align"
       // Compute the chunk address from the user address.
       chunk_t* chunk = reinterpret_cast<chunk_t*> (static_cast<char*> (addr)
                                                    - chunk_offset);
+#pragma GCC diagnostic pop
 
       // If the block was aligned, the offset appears as size; adjust back.
       if (static_cast<std::ptrdiff_t> (chunk->size) < 0)
         {
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wcast-align"
           chunk = reinterpret_cast<chunk_t*> (
               reinterpret_cast<char*> (chunk)
               + static_cast<std::ptrdiff_t> (chunk->size));
+#pragma GCC diagnostic pop
         }
 
       if (bytes)
@@ -401,18 +403,12 @@ namespace micro_os_plus
         }
     }
 
-    /**
-     * @details
-     */
     std::size_t
     first_fit_top::do_max_size (void) const noexcept
     {
       return total_bytes_;
     }
 
-    /**
-     * @details
-     */
     void*
     first_fit_top::internal_align_ (chunk_t* chunk, std::size_t bytes,
                                     std::size_t alignment)
@@ -442,8 +438,11 @@ namespace micro_os_plus
           // If non-zero, store it in the gap left by alignment in the
           // chunk header.
 
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wcast-align"
           chunk_t* adj_chunk = reinterpret_cast<chunk_t*> (
               static_cast<char*> (aligned_payload) - chunk_offset);
+#pragma GCC diagnostic pop
           adj_chunk->size = static_cast<std::size_t> (-offset);
         }
 
@@ -458,5 +457,7 @@ namespace micro_os_plus
     // ------------------------------------------------------------------------
   } // namespace memory
 } // namespace micro_os_plus
+
+#pragma GCC diagnostic pop
 
 // ----------------------------------------------------------------------------
