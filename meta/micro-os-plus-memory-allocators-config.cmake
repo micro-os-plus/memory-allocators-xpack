@@ -42,7 +42,7 @@ if(NOT TARGET micro-os-plus-memory-allocators-interface)
 
   add_library(micro-os-plus-memory-allocators-interface INTERFACE EXCLUDE_FROM_ALL)
 
-  # ---------------------------------------------------------------------------
+# -----------------------------------------------------------------------------
 
   xpack_glob_recurse_cxx(source_files "${xpack_current_folder}/src")
   xpack_display_relative_paths("${source_files}" "${xpack_current_folder}")
@@ -68,7 +68,7 @@ if(NOT TARGET micro-os-plus-memory-allocators-interface)
       micro-os-plus::diag-trace
   )
 
-  # ---------------------------------------------------------------------------
+# -----------------------------------------------------------------------------
   # Aliases.
 
   add_library(micro-os-plus::memory-allocators ALIAS micro-os-plus-memory-allocators-interface)
