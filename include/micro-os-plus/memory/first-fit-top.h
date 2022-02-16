@@ -471,13 +471,11 @@ namespace micro_os_plus
     inline first_fit_top::first_fit_top (const char* name)
         : rtos::memory::memory_resource{ name }
     {
-      ;
     }
 
     inline first_fit_top::first_fit_top (void* addr, std::size_t bytes)
         : first_fit_top{ nullptr, addr, bytes }
     {
-      ;
     }
 
     inline first_fit_top::first_fit_top (const char* name, void* addr,
@@ -496,7 +494,6 @@ namespace micro_os_plus
     inline first_fit_top_inclusive<N>::first_fit_top_inclusive ()
         : first_fit_top_inclusive (nullptr)
     {
-      ;
     }
 
     template <std::size_t N>
@@ -522,7 +519,6 @@ namespace micro_os_plus
         std::size_t bytes, const allocator_type& allocator)
         : first_fit_top_allocated (nullptr, bytes, allocator)
     {
-      ;
     }
 
     template <typename A>

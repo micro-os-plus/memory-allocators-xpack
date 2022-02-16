@@ -378,7 +378,6 @@ namespace micro_os_plus
     template <std::size_t N>
     inline lifo_inclusive<N>::lifo_inclusive () : lifo_inclusive (nullptr)
     {
-      ;
     }
 
     template <std::size_t N>
@@ -402,7 +401,6 @@ namespace micro_os_plus
                                               const allocator_type& allocator)
         : lifo_allocated (nullptr, bytes, allocator)
     {
-      ;
     }
 
     template <typename A>

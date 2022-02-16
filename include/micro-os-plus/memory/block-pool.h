@@ -455,7 +455,6 @@ namespace micro_os_plus
     inline block_pool::block_pool (const char* name)
         : rtos::memory::memory_resource{ name }
     {
-      ;
     }
 
     inline block_pool::block_pool (std::size_t blocks,
@@ -463,7 +462,6 @@ namespace micro_os_plus
                                    std::size_t bytes)
         : block_pool{ nullptr, blocks, block_size_bytes, addr, bytes }
     {
-      ;
     }
 
     inline block_pool::block_pool (const char* name, std::size_t blocks,
@@ -483,7 +481,6 @@ namespace micro_os_plus
     inline block_pool_typed_inclusive<T, N>::block_pool_typed_inclusive ()
         : block_pool_typed_inclusive (nullptr)
     {
-      ;
     }
 
     template <typename T, std::size_t N>
@@ -510,7 +507,6 @@ namespace micro_os_plus
         std::size_t blocks, const allocator_type& allocator)
         : block_pool_typed_allocated (nullptr, blocks, allocator)
     {
-      ;
     }
 
     template <typename T, typename A>
