@@ -52,6 +52,8 @@ cd my-project
 xpm init # Unless a package.json is already present
 
 xpm install @micro-os-plus/memory-allocators@latest
+
+ls -l xpacks/micro-os-plus-memory-allocators
 ```
 
 ### Git submodule
