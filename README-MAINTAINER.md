@@ -117,7 +117,7 @@ When the release is considered stable, promote it as `latest`:
 
 - `npm dist-tag ls @micro-os-plus/memory-allocators`
 - `npm dist-tag add @micro-os-plus/memory-allocators@2.0.1 latest`
-- `npm dist-tag ls @@micro-os-plus/memory-allocators`
+- `npm dist-tag ls @micro-os-plus/memory-allocators`
 
 ## Announce to the community
 
