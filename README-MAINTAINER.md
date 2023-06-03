@@ -1,5 +1,5 @@
 [![license](https://img.shields.io/github/license/micro-os-plus/memory-allocators-xpack)](https://github.com/micro-os-plus/memory-allocators-xpack/blob/xpack/LICENSE)
-[![CI on Push](https://github.com/micro-os-plus/memory-allocators-xpack/actions/workflows/CI.yml/badge.svg)](https://github.com/micro-os-plus/memory-allocators-xpack/actions/workflows/CI.yml)
+[![CI on Push](https://github.com/micro-os-plus/memory-allocators-xpack/actions/workflows/ci.yml/badge.svg)](https://github.com/micro-os-plus/memory-allocators-xpack/actions/workflows/ci.yml)
 [![GitHub issues](https://img.shields.io/github/issues/micro-os-plus/memory-allocators-xpack.svg)](https://github.com/micro-os-plus/memory-allocators-xpack/issues/)
 [![GitHub pulls](https://img.shields.io/github/issues-pr/micro-os-plus/memory-allocators-xpack.svg)](https://github.com/micro-os-plus/memory-allocators-xpack/pulls)
 
@@ -112,7 +112,7 @@ xpm run test-all -C ~/Work/micro-os-plus/memory-allocators-xpack.git
 - push the `xpack-develop` branch to GitHub
 - the `postversion` npm script should also update tags via `git push origin --tags`
 - wait for the CI job to complete
-  (<https://github.com/micro-os-plus/memory-allocators-xpack/actions/workflows/CI.yml>)
+  (<https://github.com/micro-os-plus/memory-allocators-xpack/actions/workflows/ci.yml>)
 
 ### Publish
 
