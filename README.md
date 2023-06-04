@@ -62,7 +62,7 @@ xpm init # Unless a package.json is already present
 
 xpm install @micro-os-plus/memory-allocators@latest
 
-ls -l xpacks/micro-os-plus-memory-allocators
+ls -l xpacks/@micro-os-plus/memory-allocators
 ```
 
 ### Git submodule
@@ -76,7 +76,7 @@ git init # Unless already a Git project
 mkdir -p xpacks
 
 git submodule add https://github.com/micro-os-plus/memory-allocators-xpack.git \
-  xpacks/micro-os-plus-memory-allocators
+  xpacks/@micro-os-plus/memory-allocators
 ```
 
 ## Branches
