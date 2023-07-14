@@ -13,11 +13,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/micro-os-plus/memory-allocators-xpack.git/"
+    "url": "https://github.com/micro-os-plus/memory-allocators-xpack.git"
   },
-  "homepage": "https://github.com/micro-os-plus/memory-allocators-xpack/",
+  "homepage": "https://github.com/micro-os-plus/memory-allocators-xpack",
   "bugs": {
-    "url": "https://github.com/micro-os-plus/memory-allocators-xpack/issues/"
+    "url": "https://github.com/micro-os-plus/memory-allocators-xpack/issues"
   },
   "keywords": [
     "xpack",
@@ -27,7 +27,7 @@
   "author": {
     "name": "Liviu Ionescu",
     "email": "ilg@livius.net",
-    "url": "https://github.com/ilg-ul/"
+    "url": "https://github.com/ilg-ul"
   },
   "license": "MIT",
   "config": {},
