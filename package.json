@@ -1,7 +1,7 @@
 {
   "name": "@micro-os-plus/memory-allocators",
   "version": "2.0.1",
-  "description": "A source library xPack with µOS++ memory allocators",
+  "description": "A source code library with µOS++ memory allocators",
   "main": "",
   "scripts": {
     "npm-install": "npm install",
